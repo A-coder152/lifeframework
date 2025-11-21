@@ -7,5 +7,6 @@ newTaskBtn.addEventListener("click", () => {
     newBigTask.innerHTML = `
     <h4>${newTaskInput.value}</h4>
     <p>woah look its a new task</p>`
+    newBigTask.classList.add("bigTask")
     bigTasksDiv.appendChild(newBigTask)
 })
