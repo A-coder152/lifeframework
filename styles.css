@@ -12,8 +12,12 @@ body {
 .horiz {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
+}
+
+h1 {
+    margin: 2rem 0 4rem;
 }
 
 .bigTasksDiv {
@@ -44,10 +48,27 @@ input {
     border-radius: 1rem;
     padding: 0 1rem;
     color: #78c;
+    width: 60%;
 }
 
 .mainDiv{
     display: flex;
     flex-direction: row;
-    align-items: self-end;
+    align-items: start;
+    gap: 12rem;
+}
+
+.splitTasksDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 30rem;
+}
+
+.splitTask {
+    background-color: rgb(229, 237, 255);
+    width: 30rem;
+    border: 2px solid #bce;
+    border-radius: 1.5rem;
+    padding: 0.1rem;
 }

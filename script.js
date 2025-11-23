@@ -16,7 +16,7 @@ newTaskBtn.addEventListener("click", () => {
 splitTasksBtn.addEventListener("click", () => {
     const newSplitTask = document.createElement("div")
     newSplitTask.innerHTML = `
-    <h5> split task title </h5>
-    <p> split task description </p>`
+    <h4> split task title </h4>`
+    newSplitTask.classList.add("splitTask")
     splitTasksDiv.appendChild(newSplitTask)
 })
