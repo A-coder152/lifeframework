@@ -19,16 +19,15 @@ async function api_request(url, stuff){
 }
 
 async function ai_request(prompt){
-    const response = await api_request("https://ai.hackclub.com/proxy/v1/chat/completions", 
+    const response = await api_request("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", 
         {method: "POST", headers: {
-            "Authorization": "Bearer sk-hc-v1-37cd4686934e4b3d8c3fdc8f8f627bb2e4c9d6b4edf24ff3b778f77e5df26bc9",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "x-goog-api-key": "AIzaSyBg4IHRzXgfi2MpwNZ3vqE_4jkQ8Z1lHqQ"
         }, body: JSON.stringify({
-            model: 'qwen/qwen3-32b',
-            messages: [{role: "user", content: prompt}]
+            contents: [{parts: [{text: prompt}]}]
         })}
     )
-    return response.choices[0].message.content
+    return response.candidates?.[0]?.content?.parts?.[0]?.text || "no text :("
 }
 
 function toggleExpand(expando){
