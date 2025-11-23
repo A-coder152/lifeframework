@@ -4,6 +4,10 @@ const newTaskBtn = document.getElementById("newTaskBtn")
 const splitTasksDiv = document.getElementById("splitTasksDiv")
 const splitTasksBtn = document.getElementById("splitTasksBtn")
 
+const task_bg_colors = ["rgb(229, 237, 255)", "rgb(255, 229, 229)", "rgb(255, 229, 251)",
+    "rgb(255, 245, 229)", "rgb(255, 255, 229)", "rgb(232, 255, 229)", "rgb(229, 255, 255)"
+]
+
 let expandoList = []
 
 function toggleExpand(expando){
@@ -22,6 +26,7 @@ newTaskBtn.addEventListener("click", () => {
     <button class="toggleButton" onclick="toggleExpand(${expandoList.push(expansion) - 1})"></button>
     </div>`
     newBigTask.classList.add("bigTask")
+    newBigTask.style.backgroundColor = task_bg_colors[Math.floor(Math.random() * task_bg_colors.length)]
     newBigTask.appendChild(expansion)
     bigTasksDiv.appendChild(newBigTask)
 })

@@ -38,13 +38,13 @@ h1 {
 button {
     padding: 0.35rem 0.7rem;
     border-radius: 1rem;
-    color: rgb(224, 234, 255);
+    color: rgb(229, 237, 255);
     background-color: #78c;
     border: 2px solid #bce;
 }
 
 input {
-    background-color: rgb(224, 234, 255);
+    background-color: rgb(229, 237, 255);
     border: 1px solid #bce;
     border-radius: 1rem;
     padding: 0 1rem;
@@ -83,7 +83,7 @@ input {
     margin: 0.5rem;
     width: 90%;
     height: 5rem;
-    background-color: rgb(224, 234, 255);
+    background-color: rgb(229, 237, 255);
     border: 1px solid #bce;
     border-radius: 1rem;
     padding: 0.5rem;
