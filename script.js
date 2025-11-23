@@ -10,6 +10,27 @@ const task_bg_colors = ["rgb(229, 237, 255)", "rgb(255, 229, 229)", "rgb(255, 22
 
 let expandoList = []
 
+async function api_request(url, stuff){
+    const response = await fetch(url, stuff)
+    if (!response.ok){
+        throw new Error(`error ${response} code ${response.status} caused by request at ${url} for ${stuff}`)
+    }
+    return response.json()
+}
+
+async function ai_request(prompt){
+    const response = await api_request("https://ai.hackclub.com/proxy/v1/chat/completions", 
+        {method: "POST", headers: {
+            "Authorization": "Bearer sk-hc-v1-37cd4686934e4b3d8c3fdc8f8f627bb2e4c9d6b4edf24ff3b778f77e5df26bc9",
+            "Content-Type": "application/json"
+        }, body: JSON.stringify({
+            model: 'qwen/qwen3-32b',
+            messages: [{role: "user", content: prompt}]
+        })}
+    )
+    return response.choices[0].message.content
+}
+
 function toggleExpand(expando){
     expandoList[expando].style.display = (expandoList[expando].style.display == "flex")? "none": "flex"
 }
@@ -46,3 +67,5 @@ splitTasksBtn.addEventListener("click", () => {
     newSplitTask.appendChild(expansion)
     splitTasksDiv.appendChild(newSplitTask)
 })
+
+ai_request("Tell me a joke").then(joke => console.log(joke))
