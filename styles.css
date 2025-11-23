@@ -12,7 +12,8 @@ body {
 .horiz {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -49,6 +50,7 @@ input {
     padding: 0 1rem;
     color: #78c;
     width: 60%;
+    height: 2rem;
 }
 
 .mainDiv{
@@ -71,4 +73,28 @@ input {
     border: 2px solid #bce;
     border-radius: 1.5rem;
     padding: 0.1rem;
+}
+
+.toggleButton {
+    height: 1.5rem;
+}
+
+.expansionInput{
+    margin: 0.5rem;
+    width: 90%;
+    height: 5rem;
+    background-color: rgb(224, 234, 255);
+    border: 1px solid #bce;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    color: #78c;
+}
+
+.expansionP{
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    color: #78c;
 }
