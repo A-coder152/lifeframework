@@ -10,6 +10,7 @@ const task_bg_colors = ["rgb(229, 237, 255)", "rgb(255, 229, 229)", "rgb(255, 22
 ]
 
 let expandoList = []
+let deletoBtns = []
 
 async function api_request(url, stuff){
     const response = await fetch(url, stuff)
@@ -37,15 +38,21 @@ function toggleExpand(expando){
     expandoList[expando].style.display = (expandoList[expando].style.display == "flex")? "none": "flex"
 }
 
+function deleteParent(event){
+    const button = event.target
+    button.parentElement.parentElement.style.display = "none";
+}
+
 async function createSplitTasks(){
     const bigTasks = document.querySelectorAll(".bigTask")
     let taskDescs = []
     bigTasks.forEach(taskElement => {
-        taskDescs.push({
-            name: taskElement.querySelector(".taskName").textContent,
-            color: taskElement.style.backgroundColor,
-            description: taskElement.querySelector(".expansionInput").value
-        })
+        if (taskElement.style.display != "none"){
+            taskDescs.push({
+                name: taskElement.querySelector(".taskName").textContent,
+                color: taskElement.style.backgroundColor,
+                description: taskElement.querySelector(".expansionInput").value
+        })}
     })
     const alreadySplit = document.querySelectorAll(".splitTask")
     let splitTaskDescs = []
@@ -75,6 +82,7 @@ async function createSplitTasks(){
         <div class="horiz">
         <h4 class="taskName">${task.name}</h4>
         <button class="toggleButton" onclick="toggleExpand(${expandoList.push(expansion) - 1})"></button>
+        <button class="deletoBtn" onclick="deleteParent(event)">X</button>
         </div>`
         newSplitTask.classList.add("splitTask")
         newSplitTask.style.backgroundColor = task.color
@@ -93,6 +101,7 @@ newTaskBtn.addEventListener("click", () => {
     <div class="horiz">
     <h3 class="taskName">${newTaskInput.value}</h3>
     <button class="toggleButton" onclick="toggleExpand(${expandoList.push(expansion) - 1})"></button>
+    <button class="deletoBtn" onclick="deleteParent(event)">X</button>
     </div>`
     newBigTask.classList.add("bigTask")
     newBigTask.style.backgroundColor = task_bg_colors[Math.floor(Math.random() * task_bg_colors.length)]

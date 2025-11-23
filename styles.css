@@ -98,3 +98,8 @@ input {
     justify-content: center;
     color: #78c;
 }
+
+.deletoBtn {
+    background-color: #faa;
+    color: #f77;
+}
