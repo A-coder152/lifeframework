@@ -22,15 +22,17 @@ async function api_request(url, stuff){
 
 async function ai_request(prompt){
     AIAwait.style.display = "flex"
-    const response = await api_request("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", 
+    /*const response = await api_request("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", 
         {method: "POST", headers: {
             "Content-Type": "application/json",
             "x-goog-api-key": "cant even leak api keys in peace"
         }, body: JSON.stringify({
             contents: [{parts: [{text: prompt}]}]
         })}
-    )
+    )*/
+    const response = await api_request("https://acoder152.pythonanywhere.com/ai/text/" + encodeURIComponent(prompt))
     AIAwait.style.display = "none"
+    console.log(response)
     return response.candidates?.[0]?.content?.parts?.[0]?.text || "no text :("
 }
 
