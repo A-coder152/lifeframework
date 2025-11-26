@@ -33,7 +33,7 @@ async function ai_request(prompt){
     const response = await api_request("https://acoder152.pythonanywhere.com/ai/text/" + encodeURIComponent(prompt))
     AIAwait.style.display = "none"
     console.log(response)
-    return response.candidates?.[0]?.content?.parts?.[0]?.text || "no text :("
+    return response.response || "no text :("
 }
 
 function toggleExpand(expando){
