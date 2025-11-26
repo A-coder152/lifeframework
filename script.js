@@ -25,7 +25,7 @@ async function ai_request(prompt){
     const response = await api_request("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", 
         {method: "POST", headers: {
             "Content-Type": "application/json",
-            "x-goog-api-key": "AIzaSyBg4IHRzXgfi2MpwNZ3vqE_4jkQ8Z1lHqQ"
+            "x-goog-api-key": "cant even leak api keys in peace"
         }, body: JSON.stringify({
             contents: [{parts: [{text: prompt}]}]
         })}
